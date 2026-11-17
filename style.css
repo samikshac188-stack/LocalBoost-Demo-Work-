@@ -1,0 +1,219 @@
+/* ===========================================================
+   Aurum Noir Salon - dark luxury theme (demo)
+   Change the colours in :root to restyle the whole site.
+   =========================================================== */
+:root{
+  --bg:#0b0b0c;
+  --bg2:#121214;
+  --card:#17171a;
+  --gold:#c9a45c;
+  --gold-light:#ecd9a6;
+  --gold-dark:#8f6f2e;
+  --text:#ece7dd;
+  --muted:#a39d91;
+  --line:rgba(201,164,92,.25);
+  --radius:20px;
+  --gold-grad:linear-gradient(135deg,#8f6f2e,#e8cf8a 48%,#b8893c);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.15;color:#fff}
+.container{width:min(1140px,92%);margin-inline:auto}
+.gold{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-block;background:var(--gold-grad);color:#1a1205;padding:13px 30px;border-radius:50px;
+  font-weight:600;font-size:.92rem;letter-spacing:.3px;border:1.5px solid transparent;cursor:pointer;
+  transition:transform .25s,box-shadow .25s;font-family:inherit;
+  box-shadow:0 8px 24px rgba(201,164,92,.25),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(201,164,92,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-ghost{background:transparent;color:var(--gold-light);border-color:var(--gold);box-shadow:none}
+.btn-ghost:hover{background:rgba(201,164,92,.12);box-shadow:none}
+.btn-sm{padding:9px 22px;font-size:.82rem}
+.btn-block{width:100%;margin-top:6px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+/* ---------- Header ---------- */
+.header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;letter-spacing:.5px}
+.logo em{color:var(--gold);font-style:italic}
+.gem{color:var(--gold);font-size:.8rem;margin-right:8px;vertical-align:middle}
+.menu{display:flex;align-items:center;gap:30px;font-size:.88rem;font-weight:500}
+.menu a:not(.btn){color:#cfc8ba;position:relative;transition:color .2s}
+.menu a:not(.btn):hover,.menu a.active{color:var(--gold-light)}
+.menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--gold-grad)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;padding:9px}
+.burger span{display:block;height:2px;background:var(--gold-light);margin:6px 0;transition:.25s}
+
+/* ---------- Hero ---------- */
+.hero{overflow:hidden;padding:70px 0 90px;background:
+  radial-gradient(circle at 85% 20%,rgba(201,164,92,.18),transparent 45%),
+  radial-gradient(circle at 5% 95%,rgba(201,164,92,.08),transparent 40%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:.74rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);margin-bottom:18px}
+.lead{font-size:1.05rem;color:var(--muted);max-width:520px}
+.open{margin-top:26px;font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:10px}
+.dot{width:9px;height:9px;border-radius:50%;background:#3ecf6e;box-shadow:0 0 0 4px rgba(62,207,110,.18)}
+
+/* 3D scene made with CSS */
+.scene{position:relative;height:460px;perspective:1000px}
+.orb{position:absolute;border-radius:50%;animation:float 6s ease-in-out infinite;
+  background:radial-gradient(circle at 30% 25%,#fff6d9 0,#e6c675 22%,#b88a34 55%,#5b3f10 85%,#2b1d06 100%);
+  box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 80px rgba(201,164,92,.25)}
+.o1{width:250px;height:250px;left:50%;top:50%;margin:-125px 0 0 -125px;display:grid;place-items:center}
+.o1 span{font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(43,29,6,.78);text-shadow:0 2px 0 rgba(255,240,200,.45)}
+.o2{width:86px;height:86px;right:8%;top:8%;animation-delay:-2s}
+.o3{width:58px;height:58px;left:8%;bottom:10%;animation-delay:-4s}
+.ring{position:absolute;left:50%;top:50%;width:390px;height:390px;margin:-195px 0 0 -195px;border-radius:50%;
+  border:2px solid rgba(201,164,92,.55);box-shadow:0 0 30px rgba(201,164,92,.2);
+  transform:rotateX(72deg);animation:spin 14s linear infinite}
+.ring.r2{width:320px;height:320px;margin:-160px 0 0 -160px;border-style:dashed;border-color:rgba(201,164,92,.35);
+  transform:rotateX(72deg) rotateY(28deg);animation-direction:reverse;animation-duration:20s}
+@keyframes float{50%{transform:translateY(-16px)}}
+@keyframes spin{to{transform:rotateX(72deg) rotateZ(360deg)}}
+
+/* ---------- Strip ---------- */
+.strip{border-block:1px solid var(--line);background:var(--bg2);padding:16px 0;font-size:.84rem;color:var(--gold-light)}
+.strip-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px}
+
+/* ---------- Sections ---------- */
+.section{padding:90px 0}
+.section.alt{background:var(--bg2)}
+.section.cta{background:radial-gradient(circle at 50% 0,rgba(201,164,92,.15),transparent 60%),var(--bg)}
+.head{text-align:center;max-width:620px;margin:0 auto 48px}
+.head h2,.section h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:10px}
+.head p:not(.eyebrow){color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:26px}
+.center-link{text-align:center;margin-top:36px}
+.link{color:var(--gold-light);font-weight:500;border-bottom:1px solid var(--gold)}
+.page-hero{padding:80px 0 60px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(201,164,92,.16),transparent 65%),var(--bg)}
+.page-hero h1{font-size:clamp(2.6rem,6vw,4.2rem);margin-bottom:8px}
+.page-hero .lead{margin:auto}
+
+/* ---------- Cards ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card,.plan,.step{background:linear-gradient(160deg,#1c1c20,#121214);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;
+  box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.tilt{transition:transform .2s ease-out,box-shadow .3s,border-color .3s,opacity .7s ease,translate .7s ease;transform-style:preserve-3d}
+.tilt:hover{border-color:var(--gold);box-shadow:0 26px 55px rgba(0,0,0,.6),0 0 30px rgba(201,164,92,.12)}
+.icon{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-size:1.8rem;margin-bottom:18px;color:var(--gold-light);
+  background:radial-gradient(circle at 30% 25%,#2b2416,#121214);border:2px solid var(--gold);box-shadow:0 0 24px rgba(201,164,92,.2),inset 0 0 14px rgba(201,164,92,.12)}
+.card h3{font-size:1.5rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.93rem;margin-bottom:14px}
+.price{color:var(--gold-light);font-weight:600;font-size:.95rem}
+.step b{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);line-height:1}
+.step h4{font-size:1.35rem;margin:6px 0 4px}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* ---------- Split / portrait ---------- */
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.portrait{aspect-ratio:1;max-width:380px;width:100%;margin-inline:auto;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 25%,#fff6d9 0,#e6c675 20%,#b88a34 52%,#5b3f10 85%,#2b1d06 100%);
+  box-shadow:0 0 0 10px rgba(201,164,92,.12),0 0 0 11px var(--gold),0 40px 70px rgba(0,0,0,.6)}
+.portrait span{font-family:'Cormorant Garamond',serif;font-size:10rem;font-weight:700;color:rgba(43,29,6,.75);text-shadow:0 2px 0 rgba(255,240,200,.45)}
+.split p.muted{margin:12px 0 20px}
+.quote{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-style:italic;color:var(--gold-light);border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:20px 0 28px}
+
+/* ---------- Banner ---------- */
+.banner{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;border:1px solid var(--gold);border-radius:28px;padding:44px;
+  background:linear-gradient(120deg,#1c1709,#0f0f11);box-shadow:0 0 50px rgba(201,164,92,.12)}
+.banner-side{text-align:center}
+.banner-side strong{display:block;font-family:'Cormorant Garamond',serif;font-size:3.4rem;color:var(--gold-light);line-height:1.1;margin-bottom:8px}
+
+/* ---------- Packages ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.plan{text-align:center;position:relative;display:flex;flex-direction:column;padding:40px 30px}
+.plan.featured{border-color:var(--gold);background:linear-gradient(160deg,#241d0d,#121214)}
+.plan h3{font-size:1.7rem}
+.amount{font-family:'Cormorant Garamond',serif;font-size:3.2rem;color:var(--gold-light);margin:8px 0 18px}
+.plan ul{margin-bottom:26px;flex:1}
+.plan li{padding:10px 0;border-bottom:1px dashed rgba(201,164,92,.2);font-size:.93rem;color:#d8d2c5}
+.plan li::before{content:"◆ ";color:var(--gold);font-size:.6rem;vertical-align:middle}
+.badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold-grad);color:#1a1205;font-size:.72rem;font-weight:700;
+  padding:5px 18px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+
+/* ---------- FAQ ---------- */
+.faq{width:min(780px,100%);margin:auto}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;color:var(--gold);transition:.2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--muted);font-size:.93rem}
+
+/* ---------- Timeline ---------- */
+.timeline{width:min(700px,100%);margin:auto;border-left:2px solid var(--gold);padding-left:30px}
+.timeline li{position:relative;padding-bottom:30px}
+.timeline li::before{content:"";position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--gold-grad);box-shadow:0 0 12px rgba(201,164,92,.6)}
+.timeline b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff}
+.timeline span{color:var(--muted);font-size:.93rem}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.info{margin:20px 0 26px;display:grid;gap:16px}
+.info li{display:grid}
+.info b{color:var(--gold);font-size:.78rem;text-transform:uppercase;letter-spacing:2px}
+.info span{color:#d8d2c5}
+.info a:hover{color:var(--gold-light)}
+.map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:240px}
+.map iframe{width:100%;min-height:260px;border:0}
+.map-box{min-height:240px;display:grid;place-content:center;text-align:center;color:var(--muted);
+  background:repeating-linear-gradient(45deg,#141416,#141416 14px,#1a1a1d 14px,#1a1a1d 28px)}
+.map-box span{font-size:2.4rem}
+.form{background:linear-gradient(160deg,#1c1c20,#121214);border:1px solid var(--line);padding:36px;border-radius:var(--radius);display:grid;gap:16px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.form h2{font-size:2rem;margin-bottom:0}
+.form label{display:grid;gap:6px;font-size:.82rem;font-weight:500;color:var(--gold-light)}
+.form input,.form select{font:inherit;color:var(--text);padding:12px 14px;border:1.5px solid #2b2b30;border-radius:12px;background:#0e0e10;outline:0;transition:.2s;color-scheme:dark}
+.form input:focus,.form select:focus{border-color:var(--gold)}
+.form .invalid{border-color:#e5484d}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.row>label,.contact-grid>*{min-width:0}
+.form input,.form select{width:100%;min-width:0}
+.form-msg{font-size:.85rem;text-align:center;color:#ff8a8a;min-height:1.2em}
+
+/* ---------- Footer ---------- */
+.footer{background:#070708;border-top:1px solid var(--line);padding:56px 0 20px;font-size:.9rem;color:var(--muted)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:36px;padding-bottom:30px}
+.foot h4{font-family:'Inter',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px}
+.foot a{display:block;padding:2px 0}
+.foot a:hover{color:var(--gold-light)}
+.foot .logo{display:inline-block;margin-bottom:10px}
+.foot p{margin-bottom:8px}
+.copy{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.07);padding-top:18px;font-size:.8rem}
+
+/* ---------- WhatsApp float ---------- */
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* ---------- Scroll reveal (only when JavaScript is on) ---------- */
+.js .reveal{opacity:0;translate:0 28px;transition:opacity .7s ease,translate .7s ease}
+.js .reveal.show{opacity:1;translate:0 0}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .hero-grid,.split,.contact-grid{grid-template-columns:1fr}
+  .scene{height:380px;max-width:420px;margin:0 auto;width:100%}
+  .ring{width:320px;height:320px;margin:-160px 0 0 -160px}
+  .ring.r2{width:260px;height:260px;margin:-130px 0 0 -130px}
+  .grid3,.plans{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .burger{display:block}
+  .menu{position:fixed;inset:74px 0 auto 0;background:#0b0b0c;flex-direction:column;padding:26px;gap:20px;border-bottom:1px solid var(--line);
+    transform:translateY(-130%);transition:transform .35s;z-index:40}
+  .menu.open{transform:none}
+  .section{padding:64px 0}
+  .grid3,.plans,.foot{grid-template-columns:1fr}
+  .banner{padding:30px 22px;text-align:center;justify-content:center}
+  .form{padding:26px 20px}
+  .copy{flex-direction:column;text-align:center}
+           }
